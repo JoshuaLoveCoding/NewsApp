@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import edu.gwu.alohanews.common.TinBasicActivity;
+
+public class MainActivity extends TinBasicActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 //        android1 10-1
         TextView view = findViewById(R.id.text);
         view.setOnClickListener(new View.OnClickListener() {
@@ -21,5 +22,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void showSnackBar(String message) {
+
     }
 }
