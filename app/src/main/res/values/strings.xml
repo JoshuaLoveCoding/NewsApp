@@ -3,4 +3,8 @@
     <string name="share_link">Share The Link</string>
     <string name="copy_the_link">Copy The Link</string>
 
+    <!-- add bottom bar string -->
+    <string name="tin">Aloha</string>
+    <string name="save">Save</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -13,15 +13,7 @@ public class MainActivity extends TinBasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        android1 10-1
-        TextView view = findViewById(R.id.text);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
