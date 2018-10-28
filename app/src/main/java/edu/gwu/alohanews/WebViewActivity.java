@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import edu.gwu.alohanews.common.AlohaBasicActivity;
+import edu.gwu.alohanews.common.AlohaBasicFragment;
 
 public class WebViewActivity extends AlohaBasicActivity implements PopupMenu.OnMenuItemClickListener{
     public static final String URL = "url";
@@ -114,6 +115,11 @@ public class WebViewActivity extends AlohaBasicActivity implements PopupMenu.OnM
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void doFragmentTransaction(AlohaBasicFragment basicFragment) {
+
     }
 
     @Override
