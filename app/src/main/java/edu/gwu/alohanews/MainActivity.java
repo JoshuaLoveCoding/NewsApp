@@ -1,14 +1,10 @@
 package edu.gwu.alohanews;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
-import edu.gwu.alohanews.common.TinBasicActivity;
+import edu.gwu.alohanews.common.AlohaBasicActivity;
 
-public class MainActivity extends TinBasicActivity {
+public class MainActivity extends AlohaBasicActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

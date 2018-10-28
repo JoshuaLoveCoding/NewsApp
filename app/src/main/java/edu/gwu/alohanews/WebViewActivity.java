@@ -5,7 +5,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPopupHelper;
@@ -19,9 +18,9 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import edu.gwu.alohanews.common.TinBasicActivity;
+import edu.gwu.alohanews.common.AlohaBasicActivity;
 
-public class WebViewActivity extends TinBasicActivity implements PopupMenu.OnMenuItemClickListener{
+public class WebViewActivity extends AlohaBasicActivity implements PopupMenu.OnMenuItemClickListener{
     public static final String URL = "url";
     private String url;
     private ProgressBar progressBar;

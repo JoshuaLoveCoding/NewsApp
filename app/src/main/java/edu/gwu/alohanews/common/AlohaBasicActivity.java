@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class TinBasicActivity extends AppCompatActivity implements TinFragmentManager {
+public abstract class AlohaBasicActivity extends AppCompatActivity implements AlohaFragmentManager {
     protected static final String BUNDLE = "bundle";
 
     @Override
