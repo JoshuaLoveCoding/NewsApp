@@ -10,9 +10,15 @@ import android.view.ViewGroup;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+import java.util.List;
+
 import edu.gwu.alohanews.R;
 import edu.gwu.alohanews.common.AlohaBasicFragment;
+import edu.gwu.alohanews.retrofit.NewsRequestApi;
+import edu.gwu.alohanews.retrofit.RetrofitClient;
 import edu.gwu.alohanews.retrofit.response.News;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,17 +65,27 @@ public class AlohaGalleryFragment extends AlohaBasicFragment implements AlohaNew
             }
         });
 
-        //fake date start from line 62
-        for (int i = 0; i < 10; i++) {
-            News news = new News();
-            news.image = "https://i.ytimg.com/vi/BgIJ45HKDpw/maxresdefault.jpg";
-            AlohaNewsCard tinNewsCard = new AlohaNewsCard(news, mSwipeView, this);
-            mSwipeView.addView(tinNewsCard);
-        }
+        getDate();
 
         return view;
     }
 
+    private void getDate() {
+        RetrofitClient.getInstance().create(NewsRequestApi.class).getNewsByCountry("us")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .filter(baseResponse -> baseResponse != null && baseResponse.articles != null)
+                .subscribe(baseResponse -> {
+                    showNewsCard(baseResponse.articles);
+                });
+    }
+
+    private void showNewsCard(List<News> newsList) {
+        for (News news : newsList) {
+            AlohaNewsCard tinNewsCard = new AlohaNewsCard(news, mSwipeView, this);
+            mSwipeView.addView(tinNewsCard);
+        }
+    }
 
     @Override
     public void onLike(News news) {
