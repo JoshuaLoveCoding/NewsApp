@@ -14,6 +14,7 @@ import java.util.List;
 
 import edu.gwu.alohanews.R;
 import edu.gwu.alohanews.common.AlohaBasicFragment;
+import edu.gwu.alohanews.mvp.MvpFragment;
 import edu.gwu.alohanews.retrofit.NewsRequestApi;
 import edu.gwu.alohanews.retrofit.RetrofitClient;
 import edu.gwu.alohanews.retrofit.response.News;
@@ -23,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AlohaGalleryFragment extends AlohaBasicFragment implements AlohaNewsCard.OnSwipeListener  {
+public class AlohaGalleryFragment extends MvpFragment<AlohaContract.Presenter> implements AlohaNewsCard.OnSwipeListener, AlohaContract.View {
     private SwipePlaceHolderView mSwipeView;
 
 
@@ -65,22 +66,11 @@ public class AlohaGalleryFragment extends AlohaBasicFragment implements AlohaNew
             }
         });
 
-        getDate();
-
         return view;
     }
 
-    private void getDate() {
-        RetrofitClient.getInstance().create(NewsRequestApi.class).getNewsByCountry("us")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .filter(baseResponse -> baseResponse != null && baseResponse.articles != null)
-                .subscribe(baseResponse -> {
-                    showNewsCard(baseResponse.articles);
-                });
-    }
-
-    private void showNewsCard(List<News> newsList) {
+    @Override
+    public void showNewsCard(List<News> newsList) {
         for (News news : newsList) {
             AlohaNewsCard tinNewsCard = new AlohaNewsCard(news, mSwipeView, this);
             mSwipeView.addView(tinNewsCard);
@@ -89,6 +79,11 @@ public class AlohaGalleryFragment extends AlohaBasicFragment implements AlohaNew
 
     @Override
     public void onLike(News news) {
+        presenter.saveFavoriteNews(news);
+    }
 
+    @Override
+    public AlohaContract.Presenter getPresenter() {
+        return new AlohaPresenter();
     }
 }
