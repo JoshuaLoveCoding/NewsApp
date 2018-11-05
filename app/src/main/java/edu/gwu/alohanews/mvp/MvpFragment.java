@@ -2,7 +2,6 @@ package edu.gwu.alohanews.mvp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import edu.gwu.alohanews.common.AlohaBasicFragment;
 
 public abstract class MvpFragment<P extends  MvpContract.Presenter> extends AlohaBasicFragment implements MvpContract.View<P> {

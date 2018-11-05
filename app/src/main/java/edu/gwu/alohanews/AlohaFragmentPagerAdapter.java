@@ -3,7 +3,6 @@ package edu.gwu.alohanews;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import edu.gwu.alohanews.common.ContainerFragment;
 
 public class AlohaFragmentPagerAdapter extends FragmentPagerAdapter {

@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
-
 import edu.gwu.alohanews.common.AlohaBasicActivity;
 import edu.gwu.alohanews.common.AlohaBasicFragment;
 import edu.gwu.alohanews.common.ContainerFragment;

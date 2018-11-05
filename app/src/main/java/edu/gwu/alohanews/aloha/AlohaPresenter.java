@@ -1,7 +1,6 @@
 package edu.gwu.alohanews.aloha;
 
 import java.util.List;
-
 import edu.gwu.alohanews.retrofit.response.News;
 
 public class AlohaPresenter implements AlohaContract.Presenter {

@@ -1,7 +1,6 @@
 package edu.gwu.alohanews.aloha;
 
 import android.annotation.SuppressLint;
-
 import edu.gwu.alohanews.AlohaApplication;
 import edu.gwu.alohanews.database.AppDatabase;
 import edu.gwu.alohanews.retrofit.NewsRequestApi;

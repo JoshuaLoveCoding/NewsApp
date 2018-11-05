@@ -2,9 +2,7 @@ package edu.gwu.alohanews;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
-
 import com.facebook.stetho.Stetho;
-
 import edu.gwu.alohanews.database.AppDatabase;
 
 public class AlohaApplication extends Application {

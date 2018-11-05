@@ -6,20 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
-
 import java.util.List;
-
 import edu.gwu.alohanews.R;
-import edu.gwu.alohanews.common.AlohaBasicFragment;
 import edu.gwu.alohanews.mvp.MvpFragment;
-import edu.gwu.alohanews.retrofit.NewsRequestApi;
-import edu.gwu.alohanews.retrofit.RetrofitClient;
 import edu.gwu.alohanews.retrofit.response.News;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * A simple {@link Fragment} subclass.

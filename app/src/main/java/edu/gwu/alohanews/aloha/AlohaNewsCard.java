@@ -3,7 +3,6 @@ package edu.gwu.alohanews.aloha;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
@@ -14,7 +13,6 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 import com.squareup.picasso.Picasso;
-
 import edu.gwu.alohanews.common.Util;
 import edu.gwu.alohanews.retrofit.response.News;
 import edu.gwu.alohanews.R;
