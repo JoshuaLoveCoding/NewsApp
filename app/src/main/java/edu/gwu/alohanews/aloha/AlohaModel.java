@@ -47,6 +47,7 @@ public class AlohaModel implements AlohaContract.Model {
                 subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(() ->{
 
         }, error -> {
+                    presenter.onError(error.getMessage());
         });
     }
 }

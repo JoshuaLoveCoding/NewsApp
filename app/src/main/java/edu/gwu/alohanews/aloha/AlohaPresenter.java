@@ -48,4 +48,11 @@ public class AlohaPresenter implements AlohaContract.Presenter {
         model.saveFavoriteNews(news);
     }
 
+    @Override
+    public void onError(String message) {
+        if (view != null) {
+            view.onError(message);
+        }
+    }
+
 }

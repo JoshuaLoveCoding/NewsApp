@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import java.util.List;
@@ -68,6 +70,11 @@ public class AlohaGalleryFragment extends MvpFragment<AlohaContract.Presenter> i
             AlohaNewsCard tinNewsCard = new AlohaNewsCard(news, mSwipeView, this);
             mSwipeView.addView(tinNewsCard);
         }
+    }
+
+    @Override
+    public void onError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override

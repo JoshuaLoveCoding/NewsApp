@@ -8,11 +8,13 @@ public interface AlohaContract {
 
     interface View extends MvpContract.View<Presenter> {
         void showNewsCard(List<News> newsList);
+        void onError(String message);
     }
 
     interface Presenter extends MvpContract.Presenter<View, Model> {
         void showNewsCard(List<News> newsList);
         void saveFavoriteNews(News news);
+        void onError(String message);
     }
 
     interface Model extends MvpContract.Model<Presenter> {
