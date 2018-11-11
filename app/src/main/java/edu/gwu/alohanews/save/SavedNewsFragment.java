@@ -14,11 +14,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import edu.gwu.alohanews.R;
-import edu.gwu.alohanews.common.AlohaBasicFragment;
+
 import edu.gwu.alohanews.common.ViewModelAdapter;
 import edu.gwu.alohanews.mvp.MvpFragment;
 import edu.gwu.alohanews.retrofit.response.News;
-import edu.gwu.alohanews.save.detail.SavedNewsDetailedFragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
