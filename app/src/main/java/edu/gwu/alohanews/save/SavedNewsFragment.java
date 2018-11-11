@@ -3,15 +3,19 @@ package edu.gwu.alohanews.save;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import edu.gwu.alohanews.R;
 import edu.gwu.alohanews.common.AlohaBasicFragment;
+import edu.gwu.alohanews.common.ViewModelAdapter;
 import edu.gwu.alohanews.mvp.MvpFragment;
 import edu.gwu.alohanews.retrofit.response.News;
 import edu.gwu.alohanews.save.detail.SavedNewsDetailedFragment;
@@ -21,8 +25,9 @@ import edu.gwu.alohanews.save.detail.SavedNewsDetailedFragment;
  */
 public class SavedNewsFragment extends MvpFragment<SavedNewsContract.Presenter> implements SavedNewsContract.View {
 
-    private TextView author;
-    private TextView description;
+    private ViewModelAdapter savedNewsAdapter;
+    private TextView emptyState;
+
 
     public static SavedNewsFragment newInstance() {
         Bundle args = new Bundle();
@@ -37,16 +42,14 @@ public class SavedNewsFragment extends MvpFragment<SavedNewsContract.Presenter> 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_saved_news, container, false);
-        author = view.findViewById(R.id.author);
-        description = view.findViewById(R.id.description);
-        description.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alohaFragmentManager.doFragmentTransaction(SavedNewsDetailedFragment.newInstance());
-            }
-        });
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        emptyState = view.findViewById(R.id.empty_state);
+        savedNewsAdapter = new ViewModelAdapter();
+        recyclerView.setAdapter(savedNewsAdapter);
         return view;
     }
+
 
     @Override
     public SavedNewsContract.Presenter getPresenter() {
@@ -55,10 +58,18 @@ public class SavedNewsFragment extends MvpFragment<SavedNewsContract.Presenter> 
 
     @Override
     public void loadSavedNews(List<News> newsList) {
-        if (newsList.size() > 0) {
-            News news = newsList.get(newsList.size() - 1);
-            author.setText(news.getAuthor());
-            description.setText(news.getDescription());
+        if (newsList.size() == 0) {
+            emptyState.setVisibility(View.VISIBLE);
+        } else {
+            emptyState.setVisibility(View.GONE);
+        }
+        if (newsList != null) {
+            List<SavedNewsViewModel> models = new LinkedList<>();
+            for (News news : newsList) {
+                models.add(new SavedNewsViewModel(news, alohaFragmentManager));
+            }
+            savedNewsAdapter.addViewModels(models);
         }
     }
+
 }
