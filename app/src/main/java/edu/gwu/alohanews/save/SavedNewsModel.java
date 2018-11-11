@@ -1,7 +1,6 @@
 package edu.gwu.alohanews.save;
 
 import android.annotation.SuppressLint;
-
 import edu.gwu.alohanews.AlohaApplication;
 import edu.gwu.alohanews.database.AppDatabase;
 import io.reactivex.android.schedulers.AndroidSchedulers;

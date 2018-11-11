@@ -3,7 +3,6 @@ package edu.gwu.alohanews.common;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

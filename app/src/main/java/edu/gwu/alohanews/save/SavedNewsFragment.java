@@ -9,12 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.LinkedList;
 import java.util.List;
-
 import edu.gwu.alohanews.R;
-
 import edu.gwu.alohanews.common.ViewModelAdapter;
 import edu.gwu.alohanews.mvp.MvpFragment;
 import edu.gwu.alohanews.retrofit.response.News;
