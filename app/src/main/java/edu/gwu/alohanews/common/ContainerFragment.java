@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import edu.gwu.alohanews.R;
 import edu.gwu.alohanews.aloha.AlohaGalleryFragment;
+import edu.gwu.alohanews.profile.AlohaProfileFragment;
 import edu.gwu.alohanews.save.SavedNewsFragment;
 
 public class ContainerFragment extends AlohaBasicFragment {
@@ -74,7 +75,7 @@ public class ContainerFragment extends AlohaBasicFragment {
             case SAVE_PAGE:
                 return SavedNewsFragment.newInstance();
             case PROFILE_PAGE:
-                return null;
+                return AlohaProfileFragment.newInstance();
             default:
                 throw new IndexOutOfBoundsException();
         }

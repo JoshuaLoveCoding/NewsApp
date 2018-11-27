@@ -66,6 +66,7 @@ public class AlohaGalleryFragment extends MvpFragment<AlohaContract.Presenter> i
 
     @Override
     public void showNewsCard(List<News> newsList) {
+        mSwipeView.removeAllViews();
         for (News news : newsList) {
             AlohaNewsCard tinNewsCard = new AlohaNewsCard(news, mSwipeView, this);
             mSwipeView.addView(tinNewsCard);
